@@ -1,0 +1,67 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Styling */
+.matchCard {
+    display: flex;
+    width: 400px; /* More rectangular shape */
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    background: white;
+    overflow: hidden; /* Keeps everything neat within the rounded corners */
+}
+
+.matchCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.mapLogo {
+    width: 100px; /* Fixed width for the image */
+    height: 100px; /* Fixed height to maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the assigned area */
+    border-top-left-radius: 8px; /* Rounded corners on the left side */
+    border-bottom-left-radius: 8px; /* Rounded corners on the left side */
+}
+
+.stats {
+    flex-grow: 1; /* Allows the stats section to fill the rest of the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    text-align: left; /* Aligns text to the left side */
+}
+
+.date, .gameScore, .character, .playerStats {
+    margin: 2px 0; /* Adjusts margin for a compact appearance */
+    font-size: 14px; /* Appropriate font size for readability */
+}
+
+.gameScore {
+    color: #e63946; /* Red color for emphasis */
+    font-size: 16px; /* Slightly larger to highlight the game score */
+    font-weight: bold; /* Bold font weight for better visibility */
+}
+
+.character {
+    font-size: 16px; /* Slightly larger font for character name */
+    color: #1d3557; /* Dark blue for contrast */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+.playerStats {
+    font-size: 12px; /* Smaller font size for detailed stats */
+    color: #457b9d; /* Soft blue for a pleasant aesthetic */
+}

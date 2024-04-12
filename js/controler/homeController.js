@@ -1,8 +1,16 @@
-import homeView from '/js/view/homeView.js';
-import profileService from '/js/service/profileService.js';
+import homeViewv2 from '/js/view/homeViewv2.js';
+import profileServicev2 from '/js/service/profileServicev2.js';
 
-function init() {
-    profileService.getProfile('SEN tarik', '1337', homeView.render, homeView.error);
+async function init() {
+    try {
+        const response = await profileServicev2.get('sawsent', 'washd');
+        homeViewv2.render(response.profile, response.matches);
+    } catch (err) {
+        console.log(err);
+    }
+
 };
+
+
 
 export default { init };
