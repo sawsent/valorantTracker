@@ -36,7 +36,7 @@ function agent(m) {
 }
 
 function agentImage(m) {
-    return `./resources/agent/logo/${agent(m).toLowerCase()}.png`
+    return `https://media.valorant-api.com/agents/${m.stats.character.id}/displayicon.png`
 }
 
 function acs(m) {

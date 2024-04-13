@@ -4,9 +4,9 @@ export default {
     path: '/',
     controller: 'homeController'
   },
-  authors: {
-    path: '/authors',
-    controller: 'authorController'
+  profile: {
+    path: '/profile',
+    controller: 'profileController'
   },
   films: {
     path: '/films',

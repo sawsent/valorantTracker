@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Filtering Form</title>
+    <link rel="stylesheet" href="test.css"> <!-- Link to your CSS file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="test.js"></script> <!-- Link to your JavaScript file -->
+</head>
+
+
+
+<body>
+    <form id="filter-form">
+        <div class="filter-group" id="agents-filter">
+            <div class="filter-label toggle" onclick="toggleVisibility('agents-options')">
+                Agents <span class="arrow">&#9662;</span> <!-- Down arrow -->
+            </div>
+            <div class="filter-options" id="agents-options">
+                <label><input type="checkbox" name="agents" value="agent1"> Agent 1</label>
+                <label><input type="checkbox" name="agents" value="agent2"> Agent 2</label>
+                <label><input type="checkbox" name="agents" value="agent3"> Agent 3</label>
+            </div>
+        </div>
+
+        <div class="filter-group" id="maps-filter">
+            <div class="filter-label toggle" onclick="toggleVisibility('maps-options')">
+                Maps <span class="arrow">&#9662;</span> <!-- Down arrow -->
+            </div>
+            <div class="filter-options" id="maps-options">
+                <label><input type="checkbox" name="maps" value="map1"> Map 1</label>
+                <label><input type="checkbox" name="maps" value="map2"> Map 2</label>
+                <label><input type="checkbox" name="maps" value="map3"> Map 3</label>
+            </div>
+        </div>
+
+        <div class="filter-group" id="win-loss-filter">
+            <div class="filter-label toggle" onclick="toggleVisibility('winloss-options')">
+                Win/Loss <span class="arrow">&#9662;</span> <!-- Down arrow -->
+            </div>
+            <div class="filter-options" id="winloss-options">
+                <label><input type="checkbox" name="winloss" value="win"> Win</label>
+                <label><input type="checkbox" name="winloss" value="loss"> Loss</label>
+            </div>
+        </div>
+
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <script src="test.js"></script>
+</body>
+
+
+
+
+
+</html>

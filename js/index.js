@@ -1,11 +1,11 @@
 import router from '/js/router.js';
 
+
+
 $(document).ready(function() {
-    $('#button').click(router.init);
-    
+    router.init()
+    $('#navSearch').click(() => window.location.hash = `/profile/${$('#username').val()}#${$('#tag').val()}`);
 })
 
-function testRequest() {
-    console.log("btn clicked")
-    
-}
+
+
