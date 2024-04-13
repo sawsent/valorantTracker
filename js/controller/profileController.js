@@ -15,6 +15,7 @@ async function init(...args) {
 
         const data = await profileService.get(username, tag);
         profileView.render(data);
+        
     } catch (err) {
         profileView.error(err);
     }
