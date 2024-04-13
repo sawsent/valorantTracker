@@ -1,13 +1,20 @@
 /* General Body Styling */
-body {
+#content {
     font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+
     height: 100vh;
+    gap: 15px;
+}
+
+#matches-container {
+    display: flex;
+    width: 650px;
+    gap: 8px;
+    align-self: flex-start;
 }
 
 /* Card Styling */
@@ -90,3 +97,29 @@ body {
     color: #2c3e50; /* Darker font color for stats */
     white-space: nowrap; /* Keeps K/D/A on one line */
 }
+
+.card {
+    width: 20rem;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 2.5rem auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-text {
+    padding: 3px 6px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 10px;
+}
+

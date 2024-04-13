@@ -1,47 +1,46 @@
 async function get(name, tag) {
 
     const profileResponse = await fetch(`https://api.henrikdev.xyz/valorant/v1/account/${name}/${tag}`);
-    const profile = await profileResponse.json();
+    let profile = await profileResponse.json();
+    profile = profile.data;
 
-    const responseMatches = await fetch(`https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/${profile.data.region}/${profile.data.puuid}`)
+    const responseMatches = await fetch(`https://api.henrikdev.xyz/valorant/v1/by-puuid/lifetime/matches/${profile.region}/${profile.puuid}`)
     let matches = await responseMatches.json();
-
-    matches = matches.data.filter((match) => !(match.metadata === undefined) && match.metadata.mode_id === 'competitive')
+    matches = matches.data.filter((match) => match.meta.mode === 'Competitive')//.slice(0, 20);
+    // matches = [matches[0]]
 
     matches.forEach((match) => {
-        console.log(match);
-        match.metadata.result = getResult(match, profile.data.puuid);
-        match.players.self = getPlayerInfo(match, profile.data.puuid);
+        match.meta.result = getResult(match, profile.puuid);
     })
 
-    console.log(profile.data.puuid)
-
     return {
-        profile: profile.data,
+        profile,
         matches,
     }
 }
 
-function getResult(match, puuid) {
+function getResult(match) {
 
-    const team = getPlayerInfo(match, puuid)['team'].toLowerCase();
+    const team = match.stats.team.toLowerCase();
 
-    if (match.teams[team].rounds_won === match.teams[team].rounds_lost) {
+    if (match.teams.red === match.teams.blue) {
         return 'tie';
     }
 
-    return (match.teams[team].has_won) ? 'win' : 'loss';
+    if (match.teams[team] > match.teams[oppositeTeam()]) {
+        return 'win';
+    }
+
+    return 'loss'
+
+    function oppositeTeam() {
+        if (team === 'red') {
+            return 'blue';
+        }
+        return 'red'
+    }
 }
 
-function getPlayerInfo(match, puuid) {
-    let player;
-    match.players.all_players.forEach((pl) => {
-        if (pl.puuid === puuid) {
-            player = pl;
-            return player;
-        }
-    })
-    return player;
-}
+
 
 export default { get }
