@@ -1,86 +1,92 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
+body, html {
     margin: 0;
-    background: #333;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #1a1a1a;
     color: #fff;
 }
 
-#filter-form {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background: #444;
-    border-radius: 8px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+header {
+    background: #202020;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
 }
 
-.filter-group {
-    margin-bottom: 30px;
-}
-
-.filter-label {
-    font-size: 18px;
+#navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
-    cursor: pointer;
+    justify-content: space-between;
 }
 
-.filter-options {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: opacity 0.3s, max-height 0.3s ease-in-out;
+#navbar ul {
+    list-style: none;
+    padding: 0;
 }
 
-.filter-options label {
-    display: block;
-    margin: 5px 0;
-    padding: 3px;
-    border-radius: 5px;
-    transition: all 0.3s;
+#navbar ul li {
+    display: inline;
+    margin-left: 20px;
 }
 
-.filter-options input[type="checkbox"] {
-    margin-right: 10px;
+#navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.filter-options label:hover {
-    background: rgba(255, 255, 255, 0.2);
+#hero {
+    background: url('background.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.expanded .filter-options {
-    max-height: 100px; /* Adjust this value based on your content's actual height */
-    opacity: 1;
+#hero h1 {
+    font-size: 2.5em;
 }
 
-.arrow {
-    transition: transform 0.3s ease-in-out;
+#hero p {
+    font-size: 1.5em;
+    margin-top: 0.5em;
 }
 
-.expanded .arrow {
-    transform: rotate(-180deg);
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+.btn {
     background: #007bff;
     color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background 0.3s, box-shadow 0.3s;
+    text-decoration: none;
 }
 
-button[type="submit"]:hover {
+.btn:hover {
     background: #0056b3;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+#features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: #333;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature img {
+    width: 80px;
+    height: 80px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #202020;
 }

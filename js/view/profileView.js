@@ -276,7 +276,8 @@ function renderQuery() {
 }
 
 function error(error) {
-    console.log(error)
+    const root = $('#main');
+    root.append($('<p style="margin=100px"></p>').text(JSON.stringify(error)))
 }
 
 export default { render, renderQuery, error };

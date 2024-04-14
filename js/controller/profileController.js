@@ -1,4 +1,5 @@
 import profileView from '/js/view/profileView.js';
+import errorView from '/js/view/errorView.js'
 import profileService from '/js/service/profileService.js';
 
 async function init(...args) {
@@ -17,7 +18,7 @@ async function init(...args) {
         profileView.render(data);
         
     } catch (err) {
-        profileView.error(err);
+        errorView.render(err);
     }
 };
 

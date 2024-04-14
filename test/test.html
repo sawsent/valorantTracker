@@ -1,59 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant Filtering Form</title>
-    <link rel="stylesheet" href="test.css"> <!-- Link to your CSS file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="test.js"></script> <!-- Link to your JavaScript file -->
+    <title>Valorant Tracker App</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-
-
-
 <body>
-    <form id="filter-form">
-        <div class="filter-group" id="agents-filter">
-            <div class="filter-label toggle" onclick="toggleVisibility('agents-options')">
-                Agents <span class="arrow">&#9662;</span> <!-- Down arrow -->
-            </div>
-            <div class="filter-options" id="agents-options">
-                <label><input type="checkbox" name="agents" value="agent1"> Agent 1</label>
-                <label><input type="checkbox" name="agents" value="agent2"> Agent 2</label>
-                <label><input type="checkbox" name="agents" value="agent3"> Agent 3</label>
-            </div>
-        </div>
+    
 
-        <div class="filter-group" id="maps-filter">
-            <div class="filter-label toggle" onclick="toggleVisibility('maps-options')">
-                Maps <span class="arrow">&#9662;</span> <!-- Down arrow -->
-            </div>
-            <div class="filter-options" id="maps-options">
-                <label><input type="checkbox" name="maps" value="map1"> Map 1</label>
-                <label><input type="checkbox" name="maps" value="map2"> Map 2</label>
-                <label><input type="checkbox" name="maps" value="map3"> Map 3</label>
-            </div>
-        </div>
+    <section id="hero">
+        <h1>Welcome to Valorant Tracker</h1>
+        <p>Track your Valorant stats and improve your game!</p>
+        <a href="#login" class="btn">Get Started</a>
+    </section>
 
-        <div class="filter-group" id="win-loss-filter">
-            <div class="filter-label toggle" onclick="toggleVisibility('winloss-options')">
-                Win/Loss <span class="arrow">&#9662;</span> <!-- Down arrow -->
-            </div>
-            <div class="filter-options" id="winloss-options">
-                <label><input type="checkbox" name="winloss" value="win"> Win</label>
-                <label><input type="checkbox" name="winloss" value="loss"> Loss</label>
-            </div>
+    <section id="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <img src="feature1.png" alt="Feature 1">
+            <h3>Stat Tracking</h3>
+            <p>Monitor your progress and get detailed reports on your gameplay.</p>
         </div>
+        <div class="feature">
+            <img src="feature2.png" alt="Feature 2">
+            <h3>Leaderboards</h3>
+            <p>See how you rank against other players in various metrics.</p>
+        </div>
+        <div class="feature">
+            <img src="feature3.png" alt="Feature 3">
+            <h3>Match History</h3>
+            <p>Review past matches to learn from mistakes and strategize for future games.</p>
+        </div>
+    </section>
 
-        <button type="submit">Apply Filters</button>
-    </form>
+    <footer>
+        <p>Valorant Tracker App &copy; 2023</p>
+    </footer>
 
     <script src="test.js"></script>
 </body>
-
-
-
-
-
 </html>

@@ -1,17 +1,11 @@
 $(document).ready(function() {
-    $('.filter-label').click(function() {
-        $(this).parent().toggleClass('active');
-    });
-
-    $('#filter-form').submit(function(e) {
+    $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
-        // Logic to apply filters goes here
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
     });
 });
-
-function toggleVisibility(id) {
-    var element = document.getElementById(id);
-    var parentDiv = element.previousElementSibling;  // This targets the .filter-label div
-    parentDiv.parentNode.classList.toggle('expanded');  // Toggle the .expanded class on the .filter-group
-}
-

@@ -9,8 +9,8 @@ export default {
     controller: 'profileController'
   },
   films: {
-    path: '/films',
-    controller: 'filmController'
+    path: '/esports',
+    controller: 'esportsController'
   },
   map: {
     path: '/map',
