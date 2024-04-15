@@ -330,11 +330,9 @@ body {
     margin-bottom: 5px;
     cursor: pointer;
     color: white;
+    transition: all 0.5s ease-in;
 }
 
-.filter-label:hover {
-
-}
 
 .filter-options {
     max-height: 0;
@@ -365,8 +363,15 @@ body {
     opacity: 1;
 }
 
+.filter-label:hover .arrow {
+    background:rgba(44, 32, 95, 0.5);
+}
+
 .arrow {
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 50%;
 }
 
 .expanded .arrow {
@@ -385,9 +390,7 @@ button[type="submit"] {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: background 0.3s, box-shadow 0.3s;
 }
-
 button[type="submit"]:hover {
     background: #0056b3;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
-

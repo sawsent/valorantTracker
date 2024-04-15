@@ -13,12 +13,12 @@ export default {
     controller: 'esportsController'
   },
   map: {
-    path: '/map',
-    controller: 'mapController'
+    path: '/agents',
+    controller: 'agentsController'
   },
   about: {
-    path: '/about',
-    controller: 'aboutController'
+    path: '/match',
+    controller: 'matchController'
   },
   currentPath: {
     path: '',

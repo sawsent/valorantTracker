@@ -14,9 +14,7 @@ function render(data) {
 
     const { profile, matches, mmr, filterables } = data;
     rawMatchData = matches;
-    console.log(rawMatchData)
-
-    console.log(filterables);
+    
 
     $('#variable').attr("href", "./css/profile.css");
 
@@ -75,7 +73,6 @@ function onFilterClick(e) {
         });
     });
 
-    console.log(checkedOptions);
     populateMatchContainer(checkedOptions);
     return false;  // Optional: return false to further prevent default form submission
 }
@@ -174,7 +171,6 @@ function createProfileBanner(formatter) {
 
     const graphContainer = $(`<div class="graph-container"></div>`)
     const graph = $(`<canvas id="rankGraph"></canvas>`)
-    console.log(graph)
 
     graphContainer.append(graph);
     bannerHTML.append(graphContainer);

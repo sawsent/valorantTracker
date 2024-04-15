@@ -1,3 +1,6 @@
+import verify from "../utilities/verify.js";
+import getVerified from "../utilities/getVerified.js";
+
 async function get(name, tag) {
 
     // test defaults
@@ -6,32 +9,21 @@ async function get(name, tag) {
         tag = 'washd';
     }
 
-    const profileResponse = await fetch(`https://api.henrikdev.xyz/valorant/v1/account/${name}/${tag}`);
-    let profile = await profileResponse.json();
+    const profile = (await getVerified('profile', `https://api.henrikdev.xyz/valorant/v1/account/${name}/${tag}`)).data;
 
-    verify('profile', profile);
-
-    profile = profile.data;
-
-    const responseMatches = await fetch(`https://api.henrikdev.xyz/valorant/v1/by-puuid/lifetime/matches/${profile.region}/${profile.puuid}?mode=competitive`)
-    let matches = await responseMatches.json();
-
-    verify('matches', matches);
-
-    matches = matches.data;
+    const matches = (await getVerified('matches', `https://api.henrikdev.xyz/valorant/v1/by-puuid/lifetime/matches/${profile.region}/${profile.puuid}?mode=competitive&size=200`)).data;
     matches.forEach((match) => {
         match.meta.result = getResult(match);
     })
 
+    const mmr = (await getVerified('mmr', `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr-history/${profile.region}/${profile.puuid}`)).data;
 
-    const mmrResponse = await fetch(`https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr-history/${profile.region}/${profile.puuid}`)
-    let mmr = await mmrResponse.json();
+    const filterables = {
+        agents: (await getVerified('agents', `https://valorant-api.com/v1/agents?isPlayableCharacter=true`)).data,
+        maps: (await getVerified('agents', `https://valorant-api.com/v1/maps`)).data.filter(map => map.narrativeDescription),
+    }
 
-    verify('mmr', mmr);
-
-    mmr = mmr.data;
-
-    const filterables = await getFilterables();
+    const filterabless = await getFilterables();
 
     return {
         profile,
@@ -61,14 +53,7 @@ async function getFilterables() {
     }
 }
 
-function verify(location, response) {
-    if (response.status != '200') {
-        throw {
-            location: location,
-            data: response,
-        }
-    }
-}
+
 
 function getResult(match) {
 

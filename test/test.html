@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant Tracker App</title>
     <link rel="stylesheet" href="test.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Valorant Stats Dashboard</title>
+    <!-- Add your stylesheet links here -->
 </head>
+
 <body>
-    
+    <div id="main">
+        <div class="content">
 
-    <section id="hero">
-        <h1>Welcome to Valorant Tracker</h1>
-        <p>Track your Valorant stats and improve your game!</p>
-        <a href="#login" class="btn">Get Started</a>
-    </section>
+            <div class="card">
 
-    <section id="features">
-        <h2>Features</h2>
-        <div class="feature">
-            <img src="feature1.png" alt="Feature 1">
-            <h3>Stat Tracking</h3>
-            <p>Monitor your progress and get detailed reports on your gameplay.</p>
+                <div id="header">
+                    <h1>VALORANT STATS</h1>
+                    <p>Check Detailed Valorant Stats and Leaderboards</p>
+                </div>
+
+                <div id="search">
+                    <input type="text" class="searchBox" id="username" placeholder="username">
+                    <input type="text" class="searchBox" id="tag" placeholder="tag">
+                    <button id="searchButton">Search</button>
+                </div>
+
+
+            </div>
+            <div id="leaderboards">
+                <div class="leaderboard">
+                    <img src="path_to_eu_flag.png" alt="EU">
+                    <h2>globeX</h2>
+                    <p>Top EU Rating</p>
+                    <p>1,133</p>
+                </div>
+
+                <div class="leaderboard">
+                    <img src="path_to_na_flag.png" alt="NA">
+                    <h2>LEV Mazino</h2>
+                    <p>Top NA Rating</p>
+                    <p>988</p>
+                </div>
+
+                <div class="leaderboard">
+                    <img src="path_to_apac_flag.png" alt="APAC">
+                    <h2>Player Name APAC</h2>
+                    <p>Top APAC Rating</p>
+                    <p>1,069</p>
+                </div>
+            </div>
         </div>
-        <div class="feature">
-            <img src="feature2.png" alt="Feature 2">
-            <h3>Leaderboards</h3>
-            <p>See how you rank against other players in various metrics.</p>
-        </div>
-        <div class="feature">
-            <img src="feature3.png" alt="Feature 3">
-            <h3>Match History</h3>
-            <p>Review past matches to learn from mistakes and strategize for future games.</p>
-        </div>
-    </section>
+    </div>
 
-    <footer>
-        <p>Valorant Tracker App &copy; 2023</p>
-    </footer>
-
-    <script src="test.js"></script>
 </body>
+
 </html>

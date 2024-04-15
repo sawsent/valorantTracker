@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link id="variable" rel="stylesheet" href="">
     <link id="permanent" rel="stylesheet" href="/css/stylesheet.css">
+    <link id="variable" rel="stylesheet" href="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="/js/index.js"></script>
@@ -20,7 +20,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <img id="logo-img" class="navbarbrand" href="#" src="./resources/logo/notxt.png">
-            <!--<a class="navbar-brand" href="#">Valorant Tracker</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,19 +38,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#/agents">Agents</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/match">Match</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input id="username" class="form-control me-2" type="search" placeholder="username"
+                    <input id="navBarUsername" class="form-control me-2" type="search" placeholder="username"
                         aria-label="Search">
-                    <input id="tag" class="form-control me-2" type="search" placeholder="tag" aria-label="Search">
+                    <input id="navBarTag" class="form-control me-2" type="search" placeholder="tag" aria-label="Search">
                     <button id="navSearch" class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    
-    
     <div id="main"></div>
         
 </body>

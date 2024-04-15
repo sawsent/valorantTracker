@@ -1,20 +1,16 @@
-function get(m) {
+function get(match) {
     return {
-        mapLogoURL: mapImage(m),
-        date: date(m),
-        gameScore: score(m),
+        mapLogoURL: `./resources/map/logo/${m.meta.map.name.toUpperCase()}.png`,
+        date: date(match),
+        gameScore: score(match),
         
-        characterName: agent(m),
-        agentImgURL: agentImage(m),
-        acs: acs(m),
-        stats: kda(m),
+        characterName: agent(match),
+        agentImgURL: `https://media.valorant-api.com/agents/${m.stats.character.id}/displayicon.png`,
+        acs: acs(match),
+        stats: `${m.stats.kills} K / ${m.stats.deaths} D / ${m.stats.assists} A`,
 
-        bg_color: bg_color(m)
+        bg_color: bg_color(match)
     }
-}
-
-function mapImage(m) {
-    return `./resources/map/logo/${m.meta.map.name.toUpperCase()}.png`
 }
 
 function score(m) {
@@ -35,18 +31,12 @@ function agent(m) {
     return m.stats.character.name;
 }
 
-function agentImage(m) {
-    return `https://media.valorant-api.com/agents/${m.stats.character.id}/displayicon.png`
-}
 
 function acs(m) {
     let totalRounds = m.teams.red + m.teams.blue;
     return `ACS: ${(m.stats.score / totalRounds).toFixed(0)}`
 }
 
-function kda(m) {
-    return `${m.stats.kills} K / ${m.stats.deaths} D / ${m.stats.assists} A`
-}
 
 function bg_color(m) {
     if (m.meta.result === 'win') {
