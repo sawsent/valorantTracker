@@ -1,92 +1,54 @@
-body, html {
+body {
     margin: 0;
-    padding: 0;
+    padding: 20px;
     font-family: Arial, sans-serif;
-    background: #1a1a1a;
-    color: #fff;
+    background-color: #f4f4f4;
 }
 
-header {
-    background: #202020;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-#navbar {
+.match-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
-#navbar ul {
-    list-style: none;
-    padding: 0;
+.map-info {
+    position: relative;
 }
 
-#navbar ul li {
-    display: inline;
-    margin-left: 20px;
+.map-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
-#navbar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+.map-details {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    color: #ffffff;
+    padding: 10px;
 }
 
-#hero {
-    background: url('background.jpg') no-repeat center center/cover;
-    height: 80vh;
+.map-name {
+    margin: 0;
+    font-size: 18px;
+}
+
+.match-date, .rounds-played {
+    margin: 0;
+    font-size: 12px;
+}
+
+.match-stats {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
-#hero h1 {
-    font-size: 2.5em;
-}
-
-#hero p {
-    font-size: 1.5em;
-    margin-top: 0.5em;
-}
-
-.btn {
-    background: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.btn:hover {
-    background: #0056b3;
-}
-
-#features {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background: #333;
-}
-
-.feature {
-    text-align: center;
-}
-
-.feature img {
-    width: 80px;
-    height: 80px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #202020;
+.match-stats p {
+    margin: 5px 0;
 }

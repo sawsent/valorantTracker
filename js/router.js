@@ -21,49 +21,31 @@ function navigate(path) {
 		return;
 	}
 
+	const pathKey = path.split('/')[1];
+
 	console.log("this is path: " + path);
+	console.log("this is path key: " + pathKey);
 
-	if (path.startsWith('/profile')) {
-		handleProfileNavigation(path);
-		return;
-	}
+	const route = routes[pathKey] || routes.home;
 
-	const routeKey = Object.keys(routes).find(key => routes[key].path === path);
-	const route = routes[routeKey] || routes.home;
-
-	console.log(route);
 	setCurrentRoute(route);
-	launchController(route.controller)
+	launchController(route.controller, path.split('/').slice(2));
 
 }
 
-function handleProfileNavigation(path) {
-	const routeKey = Object.keys(routes).find(key => routes[key].path === '/profile');
-	const route = routes[routeKey] || routes.home;
 
-	const splitPath = path.split('/')
-	
-	if (splitPath.length < 3) {
-		launchController(route.controller);
-		return;
-	}
-
-	let args = [splitPath[2], splitPath[3]];
-
-	launchController(route.controller, args)
-
-}
 
 function getPath(urlStr) {
 	return new URL(urlStr).hash.slice(1);
 }
 
 function navigateOnHashChange() {
-	addEventListener('hashchange', (e) => {
+	window.addEventListener('hashchange', (e) => {
 		const path = getPath(e.newURL);
 		navigate(path);
 	})
 }
+
 
 function init() {
 

@@ -3,42 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant Tracker App</title>
+    <title>Valorant Match Info Card</title>
     <link rel="stylesheet" href="test.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    
 
-    <section id="hero">
-        <h1>Welcome to Valorant Tracker</h1>
-        <p>Track your Valorant stats and improve your game!</p>
-        <a href="#login" class="btn">Get Started</a>
-    </section>
-
-    <section id="features">
-        <h2>Features</h2>
-        <div class="feature">
-            <img src="feature1.png" alt="Feature 1">
-            <h3>Stat Tracking</h3>
-            <p>Monitor your progress and get detailed reports on your gameplay.</p>
+<div class="match-card">
+    <div class="map-info">
+        <img src="path_to_map_image.jpg" alt="Ascent" class="map-image">
+        <div class="map-details">
+            <h2 class="map-name">Ascent</h2>
+            <p class="match-date">Tuesday, January 4, 2022 10:29 PM</p>
+            <p class="rounds-played">Rounds Played: 6</p>
         </div>
-        <div class="feature">
-            <img src="feature2.png" alt="Feature 2">
-            <h3>Leaderboards</h3>
-            <p>See how you rank against other players in various metrics.</p>
-        </div>
-        <div class="feature">
-            <img src="feature3.png" alt="Feature 3">
-            <h3>Match History</h3>
-            <p>Review past matches to learn from mistakes and strategize for future games.</p>
-        </div>
-    </section>
+    </div>
+    <div class="match-stats">
+        <p>Mode: Spike Rush</p>
+        <p>Cluster: Paris 1</p>
+    </div>
+</div>
 
-    <footer>
-        <p>Valorant Tracker App &copy; 2023</p>
-    </footer>
-
-    <script src="test.js"></script>
 </body>
 </html>

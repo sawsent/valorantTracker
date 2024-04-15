@@ -1,9 +1,5 @@
 
 export default {
-  home: {
-    path: '/',
-    controller: 'homeController'
-  },
   profile: {
     path: '/profile',
     controller: 'profileController'
@@ -16,12 +12,17 @@ export default {
     path: '/map',
     controller: 'mapController'
   },
-  about: {
-    path: '/about',
-    controller: 'aboutController'
+  match: {
+    path: '/match',
+    controller: 'matchController'
+  },
+  home: {
+    path: '/',
+    controller: 'homeController'
   },
   currentPath: {
     path: '',
     controller: ''
-  }
+  },
+  
 };

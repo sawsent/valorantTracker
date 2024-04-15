@@ -1,0 +1,79 @@
+#main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Tektur", sans-serif;
+}
+
+#statsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 65%;
+    min-width: 510px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding-right: 50px;
+}
+
+.profileInfo {
+    text-align: left;
+    width: 150px;
+}
+
+.red {
+    background: linear-gradient(to right, rgb(39, 0, 0), rgb(65, 0, 0));
+}
+
+.blue {
+    background: linear-gradient(to right, rgb(0, 0, 26), rgb(1, 0, 58));
+}
+
+.agent {
+    width: 50px;
+    margin-right: 50px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.kda {
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+}
+
+.profileandstats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.acs {
+    margin-right: 30px;
+    justify-content: flex-end;
+}
+
+.grey .profileandstats .profileInfo {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.grey {
+    height: 50px;
+    background-color: black;
+}
+
+.pov {
+    background: linear-gradient(to left, rgb(95, 81, 0), rgb(56, 48, 0));
+}

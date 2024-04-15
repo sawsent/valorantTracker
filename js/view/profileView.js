@@ -28,7 +28,9 @@ function render(data) {
     const matchesContainer = $('<div class="row" id="matches-container"></div>').appendTo($('<div class="col-md-9"></div>'));
     matchesContainerElement = matchesContainer;
     matches.forEach(match => {
-        matchesContainer.append(createMatchCard(matchFormatter.get(match)));
+        const matchCard = createMatchCard(matchFormatter.get(match));
+        matchCard.click(() => window.location.hash = `/match/${profile.name}#${profile.tag}/${match.meta.id}`);
+        matchesContainer.append(matchCard);
     });
 
     const filterForm = createFilteringForm(filterables.agents.map(agent => agent.displayName), filterables.maps.map(map => map.displayName));
@@ -247,7 +249,7 @@ function createProfileCard(profile) {
 function createMatchCard(formatter) {
     const { mapLogoURL, date, gameScore, agentImgURL, characterName, acs, stats, bg_color } = formatter;
 
-    const matchCardHTML = `
+    const matchCard = $(`
     <div class="matchCard" style="background-color: ${bg_color}">
         <img class="mapLogo" src="${mapLogoURL}">
         <div class="gameStats">
@@ -263,9 +265,9 @@ function createMatchCard(formatter) {
             <div class="stats">${stats}</div>
         </div>
     </div>
-    `;
+    `);
 
-    return matchCardHTML;
+    return matchCard;
 }
 
 function renderQuery() {

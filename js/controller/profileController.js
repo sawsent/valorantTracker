@@ -2,7 +2,7 @@ import profileView from '/js/view/profileView.js';
 import errorView from '/js/view/errorView.js'
 import profileService from '/js/service/profileService.js';
 
-async function init(...args) {
+async function init(args) {
     try {
         console.log(args);
         if (!args[0]) {
@@ -11,7 +11,7 @@ async function init(...args) {
         }
 
         let username, tag;
-        [username, tag] = args[0][0].split('#')
+        [username, tag] = args[0].split('#')
         console.log(username, '#', tag)
 
         const data = await profileService.get(username, tag);
