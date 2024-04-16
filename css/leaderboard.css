@@ -5,7 +5,6 @@
     color: #EAEAEA; /* Light grey text color */
     padding: 10px;
     border-radius: 5px;
-    font-family: "Teko", Arial, Helvetica, sans-serif;    
     width: 70%; /* Use the full width of the container */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     padding-right: 30px;
@@ -16,7 +15,8 @@
     background: linear-gradient(to right, #297fb9, #2c3e50f7);
     background-size: 100% 100%;
     background-position: center;
-    transition: all ease 0.3s;
+    transition: background-size ease 0.3s;
+    transition: transform ease 0.3s;
 }
 
 .normal:hover {

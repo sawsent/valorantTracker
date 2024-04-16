@@ -8,11 +8,11 @@ export default {
     path: '/profile',
     controller: 'profileController'
   },
-  films: {
+  esports: {
     path: '/esports',
     controller: 'esportsController'
   },
-  map: {
+  agents: {
     path: '/agents',
     controller: 'agentsController'
   },
@@ -20,8 +20,8 @@ export default {
     path: '/match',
     controller: 'matchController'
   },
-  leaderboard: {
-    path: '/leaderboard',
+  leaderboards: {
+    path: '/leaderboards',
     controller: 'leaderboardController'
   },
   currentPath: {

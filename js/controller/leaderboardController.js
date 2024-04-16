@@ -2,8 +2,8 @@ import leaderboardView from '/js/view/leaderboardView.js';
 import leaderboardService from '../service/leaderboardService.js';
 import errorView from '/js/view/errorView.js';
 
-async function init(region) {
-
+async function init(args) {
+    const region = args[0];
     try {
         if (!region) {
             leaderboardView.renderQuery();

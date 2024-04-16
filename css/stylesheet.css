@@ -13,8 +13,12 @@ body, html {
     font-family: "Tektur", Arial, Helvetica, sans-serif;
 }
 
+#bg {
+    height: 100%;
+}
+
 #navBarTag {
-    width: 90px;
+    width: 110px;
 }
 
 .navbar {

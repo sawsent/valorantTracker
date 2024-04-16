@@ -1,13 +1,10 @@
 import verify from "../utilities/verify.js";
 import getVerified from "../utilities/getVerified.js";
 
-async function get(name, tag) {
+import agents from '../data/agents.js';
+import maps from '../data/maps.js';
 
-    // test defaults
-    if (name === '' || tag === '') {
-        name = 'sawsent';
-        tag = 'washd';
-    }
+async function get(name, tag) {
 
     const profile = (await getVerified('profile', `https://api.henrikdev.xyz/valorant/v1/account/${name}/${tag}`)).data;
 
@@ -21,11 +18,9 @@ async function get(name, tag) {
     const mmr = (await getVerified('mmr', `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr-history/${profile.region}/${profile.puuid}`)).data;
 
     const filterables = {
-        agents: (await getVerified('agents', `https://valorant-api.com/v1/agents?isPlayableCharacter=true`)).data,
-        maps: (await getVerified('agents', `https://valorant-api.com/v1/maps`)).data.filter(map => map.narrativeDescription),
+        agents: agents.get(),
+        maps: maps.get().filter(map => map.narrativeDescription),
     }
-
-    const filterabless = await getFilterables();
 
     return {
         profile,
@@ -34,28 +29,6 @@ async function get(name, tag) {
         filterables,
     }
 }
-
-async function getFilterables() {
-    let agents, maps;
-
-
-    let agentsResponse = await fetch(`https://valorant-api.com/v1/agents?isPlayableCharacter=true`)
-    agentsResponse = await agentsResponse.json();
-    verify('agents', agentsResponse);
-    agents = agentsResponse.data;
-    
-    let mapsResponse = await fetch(`https://valorant-api.com/v1/maps`)
-    mapsResponse = await mapsResponse.json();
-    verify('maps', mapsResponse);
-    maps = mapsResponse.data.filter(map => map.narrativeDescription);
-    
-    return {
-        agents,
-        maps,
-    }
-}
-
-
 
 function getResult(match) {
 

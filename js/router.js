@@ -1,4 +1,5 @@
 import routes from '/js/routes.js'
+import loadingView from './view/loadingView.js';
 
 function setCurrentRoute({ path, controller }) {
 
@@ -19,53 +20,21 @@ function navigate(path) {
 		return;
 	}
 
+	loadingView.render();
 
-	if (path.startsWith('/profile')) {
-		handleProfileNavigation(path);
-		return;
-	}
+	const pathKey = path.split('/')[1];
 
-	if (path.startsWith('/leaderboard')) {
-		handleLeaderboardNavigation(path);
-		return;
-	}
-
-	const routeKey = Object.keys(routes).find(key => routes[key].path === path);
-	const route = routes[routeKey] || routes.home;
-
-	setCurrentRoute(route);
-	launchController(route.controller)
-
-}
-
-function handleLeaderboardNavigation(path) {
-	const routeKey = Object.keys(routes).find(key => routes[key].path === '/leaderboard');
-	const route = routes[routeKey] || routes.home;
-
-	const splitPath = path.split('/')
-
-	let region = splitPath[2];
-
-	launchController(route.controller, region)
-
-}
-
-function handleProfileNavigation(path) {
-	const routeKey = Object.keys(routes).find(key => routes[key].path === '/profile');
-	const route = routes[routeKey] || routes.home;
-
-	const splitPath = path.split('/')
+	console.log("this is path: " + path);
+	console.log("this is path key: " + pathKey);
 	
-	if (splitPath.length < 3) {
-		launchController(routes.home.controller);
-		return;
-	}
 
-	let args = [splitPath[2], splitPath[3]];
-
-	launchController(route.controller, args)
+	const route = routes[pathKey] || routes.home;
+	console.log('this is controller ' + route.controller)
+	setCurrentRoute(route);
+	launchController(route.controller, path.split('/').slice(2));
 
 }
+
 
 function getPath(urlStr) {
 	return new URL(urlStr).hash.slice(1);

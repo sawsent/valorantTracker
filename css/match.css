@@ -1,0 +1,185 @@
+html, body {
+    height: 100%;
+}
+
+#main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Tektur", sans-serif;
+}
+
+#bg {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+}
+
+
+#content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Tektur", sans-serif;
+    background-size: cover;
+    flex-direction: row;
+    align-items: center;
+    width: 65%;
+    gap: 25px;
+    z-index: 10;
+}
+
+#meta {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: linear-gradient(to top, #5d6569, #162029);;
+    width: 30%;
+    height: 100%;
+    border-radius: 30px;
+    flex-direction: column;
+    
+}
+
+#region-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: right;
+    gap: 1px;
+}
+
+#gameInfo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 20px;
+}
+
+#mapName {
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+#startTime {
+    font-weight: bold;
+    font-size: 20px;
+    color: #009cc4;
+}
+
+#length {
+    font-weight: normal;
+    font-size: 15px;
+    color: #f2f55d;
+}
+
+#region, #server {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    font-size: smaller;
+}
+
+#region p, #server p {
+    font-weight: bold;
+}
+
+
+#statsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-width: 510px;
+    background: linear-gradient(to left, #5d6569, #162029);
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.player-card, .header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    border-radius: 10px;
+    padding-right: 50px;
+    transition: all 0.3s ease;
+    background-size: 100%;
+    background-position: center;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    background-size: 200%;
+}
+
+.profileInfo {
+    text-align: left;
+    width: 300px;
+    overflow: visible;
+}
+
+.username {
+    overflow: visible;
+}
+
+.red {
+    background: linear-gradient(to left, rgb(141, 0, 0), rgb(78, 3, 3));
+}
+
+.blue {
+    background: linear-gradient(to left, rgb(1, 1, 100), rgb(1, 0, 58));
+}
+
+.agent {
+    width: 50px;
+    margin-right: 50px;
+    border-radius: 11px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.kda {
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+}
+
+.profileandstats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.acs {
+    margin-right: 30px;
+    justify-content: flex-end;
+}
+
+.grey .profileandstats .profileInfo {
+    display: flex;
+    gap: 10px;
+    
+}
+
+
+
+.pov {
+    background: linear-gradient(to left, rgb(95, 81, 0), rgb(56, 48, 0));
+}
+
+.profileAndRank {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rank {
+    height: 40px;
+}

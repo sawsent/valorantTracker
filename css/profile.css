@@ -15,7 +15,6 @@ body {
 }
 
 #content {
-    font-family: "Teko", Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -84,14 +83,14 @@ body {
 }
 
 .date, .gameScore {
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     margin: 5px 0;
 }
 
 .gameScore {
     color: #333; /* Stylish orange for emphasis */
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -118,18 +117,18 @@ body {
 }
 
 .character {
-    font-size: 18px;
+    font-size: 16px;
     color: #2980b9; /* Soft blue for character name */
     font-weight: bold;
 }
 
 .acs {
-    font-size: 16px;
+    font-size: 14px;
     color: #7c8686; /* Grey for the ACS */
 }
 
 .stats {
-    font-size: 18px;
+    font-size: 16px;
     color: #2c3e50; /* Darker font color for stats */
     white-space: nowrap; /* Keeps K/D/A on one line */
     width: 150px;
@@ -220,13 +219,13 @@ body {
 
 .username {
     margin-left: 10px;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: bold;
     color: #ffffff;
 }
 
 .tag {
-    font-size: 23px;
+    font-size: 20px;
     color: #666;
 }
 
@@ -247,17 +246,17 @@ body {
 .rank .text #name {
     color: white;
     display: block;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
 }
 .rank .text #value {
     color: grey;
     display: block;
-    font-size: 28px;
+    font-size: 25px;
 }
 
 .rank .text small {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .account-level {
@@ -269,14 +268,14 @@ body {
 .account-level .level {
     color: grey;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .account-level .value {
     color: #ffffff;
     display: block;
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -309,7 +308,7 @@ body {
     margin-bottom: 10px;
     text-align: left;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 25px;
     color: white;
 
 }
@@ -323,7 +322,7 @@ body {
 }
 
 .filter-label {
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -381,7 +380,7 @@ body {
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px;
     background: #007bff;
     color: #fff;
     border: none;

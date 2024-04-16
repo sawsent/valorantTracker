@@ -3,6 +3,7 @@ import profileBannerFormatter from "./formatter/profileBannerFormatter.js";
 
 var rawMatchData;
 var matchesContainerElement;
+var rawProfileData;
 
 function toggleVisibility(id) {
     var element = document.getElementById(id);
@@ -25,9 +26,9 @@ function render(data) {
 
     const matchesContainer = $('<div class="row" id="matches-container"></div>').appendTo($('<div class="col-md-9"></div>'));
     matchesContainerElement = matchesContainer;
-    matches.forEach(match => {
-        matchesContainer.append(createMatchCard(matchFormatter.get(match)));
-    });
+    rawProfileData = profile;
+
+    populateMatchContainer(matches);
 
     const filterForm = createFilteringForm(filterables.agents.map(agent => agent.displayName), filterables.maps.map(map => map.displayName));
 
@@ -36,7 +37,6 @@ function render(data) {
 
     main.append(createProfileBanner(profileBannerFormatter.get(profile, mmr)))
     main.append(matchHistory);
-
 
     populateGraph(profileBannerFormatter.get(profile, mmr).historyData);
     activateFilterForm();
@@ -69,32 +69,33 @@ function onFilterClick(e) {
         let groupName = $(this).find('.filter-options input:checkbox').attr('name');
         checkedOptions[groupName] = [];
         $(this).find('.filter-options input:checked').each(function() {
-            checkedOptions[groupName].push($(this).val());
+            checkedOptions[groupName].push($(this).val().toLowerCase());
         });
     });
 
-    populateMatchContainer(checkedOptions);
-    return false;  // Optional: return false to further prevent default form submission
-}
-
-function populateMatchContainer(filters) {
-    
     let matchesToRender = rawMatchData.slice();
 
-    if (filters.maps.length !== 0) {
-        matchesToRender = matchesToRender.filter(match => filters.maps.includes(match.meta.map.name.toLowerCase()));
+    if (checkedOptions.maps.length !== 0) {
+        matchesToRender = matchesToRender.filter(match => checkedOptions.maps.includes(match.meta.map.name.toLowerCase()));
     }
-    if (filters.agents.length !== 0) {
-        matchesToRender = matchesToRender.filter(match => filters.agents.includes(match.stats.character.name.toLowerCase()));
+    if (checkedOptions.agents.length !== 0) {
+        matchesToRender = matchesToRender.filter(match => checkedOptions.agents.includes(match.stats.character.name.toLowerCase()));
     }
-    if (filters.winloss.length !== 0) {
-        matchesToRender = matchesToRender.filter(match => filters.winloss.includes(match.meta.result.toLowerCase()));
+    if (checkedOptions.winloss.length !== 0) {
+        matchesToRender = matchesToRender.filter(match => checkedOptions.winloss.includes(match.meta.result.toLowerCase()));
     }
+
+    populateMatchContainer(matchesToRender);
+    return false;
+}
+
+function populateMatchContainer(matchesToRender) {
     matchesContainerElement.empty();
     matchesToRender.forEach(match => {
-        matchesContainerElement.append(createMatchCard(matchFormatter.get(match)));
+        const matchCard = createMatchCard(matchFormatter.get(match));
+        matchCard.click(() => window.location.hash = `/match/${rawProfileData.name}#${rawProfileData.tag}/${match.meta.id}`);
+        matchesContainerElement.append(matchCard);
     });
-
 }
 
 function createFilteringForm(agents, maps) {
@@ -243,7 +244,7 @@ function createProfileCard(profile) {
 function createMatchCard(formatter) {
     const { mapLogoURL, date, gameScore, agentImgURL, characterName, acs, stats, bg_color } = formatter;
 
-    const matchCardHTML = `
+    const matchCard = $(`
     <div class="matchCard" style="background-color: ${bg_color}">
         <img class="mapLogo" src="${mapLogoURL}">
         <div class="gameStats">
@@ -259,9 +260,9 @@ function createMatchCard(formatter) {
             <div class="stats">${stats}</div>
         </div>
     </div>
-    `;
+    `);
 
-    return matchCardHTML;
+    return matchCard;
 }
 
 function renderQuery() {
