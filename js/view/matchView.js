@@ -1,12 +1,18 @@
+import maps from "../utilities/maps.js";
+
 function render(match, pov) {
 
     $('#variable').attr("href", "./css/match.css");
     
     const rounds = match.metadata.rounds_played;
-    console.log(match);
-    console.log(pov)
+    const map = maps.getByName(match.metadata.map);
     const main = $('#main');
+
     main.empty();
+    $('body').css('background', `url(${map.splash}) no-repeat center center fixed`)
+
+    const content = $('<div id="content">');
+
     const table = $('<div>', { id: 'statsTable' });
 
     table.append(createHeader(pov));
@@ -18,21 +24,48 @@ function render(match, pov) {
         table.append(createPlayerCard(player, pov, rounds));
     })
 
-    main.append(table);
-    console.log(table);
+    content.append(createMatchHeader(match.metadata));
+    content.append(table);
+
+    main.append(content);
+    
+}
+
+function createMatchHeader(metadata) {
+    const card = $('<div id="meta">');
+    
+    const regionContainer = $('<div id="region-container">');
+    const gameInfoContainer = $('<div id="gameInfo-container">');
+
+    const mapName = $('<div id="mapName">').text(metadata.map).appendTo(gameInfoContainer);
+
+    const startTime = $('<div id="startTime">').text(metadata.game_start_patched).appendTo(gameInfoContainer);
+    const length = $('<div id="length">').text(`${(metadata.game_length / 60).toFixed(0)} minutes`).appendTo(gameInfoContainer);
+    const region = $('<div id="region">').html('Region: <p>&nbsp ' + metadata.region.toUpperCase() + '</p>').appendTo(regionContainer);
+    const server = $('<div id="server">').html('Server: <p>&nbsp ' + metadata.cluster + '</p>').appendTo(regionContainer);
+
+    card.append(gameInfoContainer);
+    card.append(regionContainer);
+    return card;
 }
 
 function createPlayerCard(player, pov, rounds, isHeader) {
 
-    const card = $(`<div class="player ${player.team.toLowerCase()} ${pov.name == player.name ? 'pov' : ''}">`);
+
+    const card = $(`<div class="${isHeader ? 'header' : 'player-card'} ${player.team.toLowerCase()} ${pov.name == player.name ? 'pov' : ''}">`);
     card.append($(`<img>`, { class: 'agent', src: player.assets.agent.small }));
 
     const profileAndStats = $('<div class="profileandstats">');
 
+    const profileAndRank = $('<div class="profileAndRank">');
+    profileAndRank.append($('<img>', { class: 'rank', src: isHeader ? '' : `https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/${player.currenttier}/smallicon.png` }))
+
     const profileInfo = $('<div class="profileInfo">');
     profileInfo.append($('<div> class="username"').text(player.name));
     profileInfo.append($('<div> class="tag"').text('#' + player.tag));
-    profileAndStats.append(profileInfo);
+    profileAndRank.append(profileInfo);
+
+    profileAndStats.append(profileAndRank);
 
     const stats = $('<div class="stats">')
 
@@ -48,7 +81,7 @@ function createPlayerCard(player, pov, rounds, isHeader) {
 
     card.append(profileAndStats)
 
-    card.click(() => window.location.hash = `/profile/${player.name}/${player.tag}`);
+    card.click(() => window.location.hash = `/profile/${player.name}#${player.tag}`);
 
     return card;
 

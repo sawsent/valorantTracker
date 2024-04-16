@@ -1,3 +1,6 @@
+import maps from "../utilities/maps.js";
+import agents from "../utilities/agents.js";
+
 async function get(name, tag) {
 
     // test defaults
@@ -42,22 +45,10 @@ async function get(name, tag) {
 }
 
 async function getFilterables() {
-    let agents, maps;
-
-
-    let agentsResponse = await fetch(`https://valorant-api.com/v1/agents?isPlayableCharacter=true`)
-    agentsResponse = await agentsResponse.json();
-    verify('agents', agentsResponse);
-    agents = agentsResponse.data;
-    
-    let mapsResponse = await fetch(`https://valorant-api.com/v1/maps`)
-    mapsResponse = await mapsResponse.json();
-    verify('maps', mapsResponse);
-    maps = mapsResponse.data.filter(map => map.narrativeDescription);
-    
+  
     return {
-        agents,
-        maps,
+        agents: agents.get(),
+        maps: maps.get().filter(map => map.narrativeDescription),
     }
 }
 
