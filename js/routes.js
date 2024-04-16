@@ -16,9 +16,13 @@ export default {
     path: '/agents',
     controller: 'agentsController'
   },
-  about: {
+  match: {
     path: '/match',
     controller: 'matchController'
+  },
+  leaderboard: {
+    path: '/leaderboard',
+    controller: 'leaderboardController'
   },
   currentPath: {
     path: '',

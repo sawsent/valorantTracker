@@ -6,7 +6,6 @@ body, html {
 }
 
 #main {
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     color: #f0f0f0;
     text-align: center;
 }
@@ -121,17 +120,19 @@ body, html {
     border-radius: 10px;
     width: 200px;
     transition: all 0.3s ease;
+
 }
 
 .leaderboard:hover {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(61, 61, 61, 0.85);
     transform: translateY(-10px);
 }
 
 .leaderboard img {
-    width: 50px;
+    width: 80px;
     height: auto;
     margin: 0 auto 10px;
+    border-radius: 10%;
 }
 
 .leaderboard h2 {
@@ -142,7 +143,7 @@ body, html {
 
 .leaderboard p {
     margin: 4px 0;
-    color: #ccc;
+    color: #ffffff;
 }
 
 /* Footer Styles */

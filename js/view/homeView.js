@@ -22,19 +22,21 @@ function render(data) {
     
     const leaderboards = $('<div>', { id: 'leaderboards' }).appendTo(content);
     
+    
     function createLeaderboard(player, region) {
         const leaderboard = $('<div>', { class: 'leaderboard' });
         leaderboard.append($('<img>', { src: `https://media.valorant-api.com/playercards/${player.PlayerCardID}/smallart.png`, alt: region }));
         leaderboard.append($('<h2>').text(player.gameName));
         leaderboard.append($('<p>').text(`Top ${region} Rating`));
         leaderboard.append($('<p>').text(player.rankedRating));
-        leaderboard.click(() => window.location.hash = `/profile/${player.gameName}#${player.tagLine}`)
+        leaderboard.click(() => window.location.hash = `/leaderboards/${region.toLowerCase()}`)
         return leaderboard;
     }
     
     leaderboards.append(createLeaderboard(eu, 'EU'));
     leaderboards.append(createLeaderboard(na, 'NA'));
     leaderboards.append(createLeaderboard(ap, 'APAC'));
+
     
     main.append(content);
 

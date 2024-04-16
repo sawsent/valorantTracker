@@ -11,10 +11,12 @@ async function get(name, tag) {
 
     const profile = (await getVerified('profile', `https://api.henrikdev.xyz/valorant/v1/account/${name}/${tag}`)).data;
 
-    const matches = (await getVerified('matches', `https://api.henrikdev.xyz/valorant/v1/by-puuid/lifetime/matches/${profile.region}/${profile.puuid}?mode=competitive&size=200`)).data;
+    const matches = (await getVerified('matches', `https://api.henrikdev.xyz/valorant/v1/by-puuid/lifetime/matches/${profile.region}/${profile.puuid}?mode=competitive`)).data;
     matches.forEach((match) => {
         match.meta.result = getResult(match);
     })
+
+    console.log(matches.length)
 
     const mmr = (await getVerified('mmr', `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr-history/${profile.region}/${profile.puuid}`)).data;
 

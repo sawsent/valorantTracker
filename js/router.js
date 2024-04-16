@@ -25,11 +25,28 @@ function navigate(path) {
 		return;
 	}
 
+	if (path.startsWith('/leaderboard')) {
+		handleLeaderboardNavigation(path);
+		return;
+	}
+
 	const routeKey = Object.keys(routes).find(key => routes[key].path === path);
 	const route = routes[routeKey] || routes.home;
 
 	setCurrentRoute(route);
 	launchController(route.controller)
+
+}
+
+function handleLeaderboardNavigation(path) {
+	const routeKey = Object.keys(routes).find(key => routes[key].path === '/leaderboard');
+	const route = routes[routeKey] || routes.home;
+
+	const splitPath = path.split('/')
+
+	let region = splitPath[2];
+
+	launchController(route.controller, region)
 
 }
 

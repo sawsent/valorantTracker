@@ -1,157 +1,27 @@
-/* General Reset and Base Styles */
-body, html {
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    color: #f0f0f0;
-    background: url('bg2.jpeg') no-repeat center center fixed;
-    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light grey background for contrast */
+}
+
+.title-card {
+    background-color: #002f6c; /* Dark blue, you can change this to fit the region's theme */
+    color: #ffffff; /* White text for contrast */
     text-align: center;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 30vh;
-}
-
-.card {
-    display: flex;
-    background: rgba(0, 0, 0, 0.8);
-    width: 50%;
-    min-width: 550px;
-    max-width: 800px;
-    flex-direction: column;
-    border-radius: 30px;
-}
-
-#bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-    opacity: 0.6;
-}
-
-/* Header Styles */
-#header {
-    
     padding: 20px;
-    border-bottom: 3px solid crimson;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 30px; /* Space below the title card */
 }
 
-#header h1 {
+.title-card h1 {
     margin: 0;
-    color: crimson;
-    font-size: 3rem;
+    padding-bottom: 10px; /* Space between the title and subtitle */
+    font-size: 2.5rem; /* Large font size for the title */
 }
 
-#header p {
-    color: #f0f0f0;
-    margin: 10px 0 20px;
-    font-size: 1.2rem;
-}
-
-/* Search Box Styles */
-#search {
-    margin: 20px;
-    padding: 15px;
-    display: flex;
-    border-radius: 10px;
-    gap: 10px;
-    justify-content: center;
-}
-
-.searchBox {
-    padding: 10px;
-    width: 250px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-#tag {
-    width: 50px;
-}
-
-#searchButton, #signInButton {
-    background-color: crimson;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-#searchButton:hover, #signInButton:hover {
-    background-color: darkred;
-    transform: scale(1.1);
-}
-
-/* Player Stats Notice */
-#playerStatsNotice {
-    margin: 20px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    font-size: 1.1rem;
-    border-radius: 10px;
-}
-
-/* Leaderboards Section */
-#leaderboards {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.leaderboard {
-    margin: 10px;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 20px;
-    border-radius: 10px;
-    width: 200px;
-    transition: all 0.3s ease;
-}
-
-.leaderboard:hover {
-    background: rgba(0, 0, 0, 0.85);
-    transform: translateY(-10px);
-}
-
-.leaderboard img {
-    width: 50px;
-    height: auto;
-    margin: 0 auto 10px;
-}
-
-.leaderboard h2 {
-    margin: 5px 0;
-    color: #f0f0f0;
-    font-size: 1.4rem;
-}
-
-.leaderboard p {
-    margin: 4px 0;
-    color: #ccc;
-}
-
-/* Footer Styles */
-footer {
-    padding: 10px;
-    background-color: #111;
-    color: #ccc;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+.title-card p {
+    font-size: 1.1rem; /* Smaller font size for the subtitle */
+    margin: 0;
+    color: #aad3e6; /* Lighter blue for a subtle effect */
 }
