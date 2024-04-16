@@ -67,16 +67,13 @@
     display: flex;
     width: 100%;
     justify-content: right;
+    font-size: smaller;
 }
 
 #region p, #server p {
     font-weight: bold;
 }
 
-#server {
-    font-size: smaller;
-    
-}
 
 #statsTable {
     display: flex;
@@ -117,11 +114,11 @@
 }
 
 .red {
-    background: linear-gradient(to right, rgb(39, 0, 0), rgb(65, 0, 0));
+    background: linear-gradient(to left, rgb(141, 0, 0), rgb(78, 3, 3));
 }
 
 .blue {
-    background: linear-gradient(to right, rgb(0, 0, 26), rgb(1, 0, 58));
+    background: linear-gradient(to left, rgb(1, 1, 100), rgb(1, 0, 58));
 }
 
 .agent {
