@@ -26,20 +26,31 @@ function render(match, pov) {
         table.append(createPlayerCard(player, pov, rounds));
     })
 
-    content.append(createMatchHeader(match.metadata));
+    content.append(createMatchHeader(match.metadata, getScore(match)));
     content.append(table);
 
     main.append(content);
     
 }
 
-function createMatchHeader(metadata) {
+function getScore(match) {
+    console.log(match.teams);
+    return {
+        red: match.teams.red.rounds_won,
+        blue: match.teams.blue.rounds_won,
+    }
+}
+
+function createMatchHeader(metadata, score) {
     const card = $('<div id="meta">');
     
     const regionContainer = $('<div id="region-container">');
     const gameInfoContainer = $('<div id="gameInfo-container">');
+    
+    const mapNameAndScore = $('<div id="mapNameAndScore">').appendTo(gameInfoContainer);
+    const mapName = $('<div id="mapName">').text(metadata.map).appendTo(mapNameAndScore);
+    const scoreDiv = $('<div id="score">').html(`<span id="red">${score.red}</span><span id="dash">-</span><span id="blue">${score.blue}`).appendTo(mapNameAndScore);
 
-    const mapName = $('<div id="mapName">').text(metadata.map).appendTo(gameInfoContainer);
 
     const startTime = $('<div id="startTime">').text(metadata.game_start_patched).appendTo(gameInfoContainer);
     const length = $('<div id="length">').text(`${(metadata.game_length / 60).toFixed(0)} minutes`).appendTo(gameInfoContainer);

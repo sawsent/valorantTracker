@@ -98,6 +98,22 @@ html, body {
     border-radius: 30px;
 }
 
+#score {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#score #red {
+    color: rgb(197, 65, 65);
+}
+
+#score #blue {
+    color: rgb(68, 138, 170);
+}
+
 .player-card, .header {
     display: flex;
     align-items: center;
@@ -183,3 +199,4 @@ html, body {
 .rank {
     height: 40px;
 }
+
