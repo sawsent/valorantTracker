@@ -8,7 +8,7 @@ function render(match, pov) {
     const rounds = match.metadata.rounds_played;
     const map = maps.getByName(match.metadata.map);
     const main = $('#main');
-    const bg = $(`<img id="bg" src="${map.splash}">`)
+    const bg = $(`<img id="bg" src="${map.splash}">`);
     
     main.empty();
     main.append(bg);
@@ -96,7 +96,7 @@ function createPlayerCard(player, pov, rounds, isHeader) {
 
     card.click(() => window.location.hash = `/profile/${player.name}#${player.tag}`);
 
-    return card;
+    return card;    
 
 }
 
