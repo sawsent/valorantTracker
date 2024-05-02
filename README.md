@@ -8,8 +8,7 @@
 
 ## Overview
 Valorant Tracker is a single-page application developed as a learning project. <br>
-The project is designed to help budding developers understand the fundamentals of building dynamic, client-side web applications. <br> 
-It enables users (primarily Valorant players) to track their gaming statistics, analyze performance, and compare with others, utilizing primarily JavaScript and jQuery.
+It enables Valorant players to track their gaming statistics, analyze performance, and compare with others, utilizing primarily JavaScript and jQuery.
 
 ## Learning Objectives
 - **JavaScript & jQuery Mastery:** Focus on mastering client-side scripting to handle API requests, data manipulation, and dynamic content updating.
@@ -22,6 +21,3 @@ It enables users (primarily Valorant players) to track their gaming statistics, 
 - **Performance Analysis:** Helps players identify trends and areas for improvement in their gameplay.
 - **Player Comparison:** Enables comparison of user stats with other players for benchmarking purposes.
 - **Interactive Dashboard:** Provides a central interface for users to interact with their data effectively.
-
-## Technologies Used
-- **Frontend Development:** Built using pure JavaScript and jQuery for scripting, with HTML and CSS for layout and styling.
