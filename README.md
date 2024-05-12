@@ -17,7 +17,7 @@ It enables Valorant players to track their gaming statistics, analyze performanc
 - **User Experience Focus:** Develop a user-friendly interface that provides a seamless interaction experience for end-users.
 
 ## Features
-- **Stat Tracking:** Allows users to view and monitor detailed gameplay statistics.
-- **Performance Analysis:** Helps players identify trends and areas for improvement in their gameplay.
-- **Player Comparison:** Enables comparison of user stats with other players for benchmarking purposes.
-- **Interactive Dashboard:** Provides a central interface for users to interact with their data effectively.
+- [X] **Stat Tracking:** Allows users to view and monitor detailed gameplay statistics.
+- [X] **Performance Analysis:** Helps players identify trends and areas for improvement in their gameplay.
+- [ ] **Player Comparison:** Enables comparison of user stats with other players for benchmarking purposes.
+- [ ] **Interactive Dashboard:** Provides a central interface for users to interact with their data effectively.
